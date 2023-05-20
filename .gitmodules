@@ -1,0 +1,4 @@
+[submodule "PingPong/Assets/Plugins/UsefulThings"]
+	path = PingPong/Assets/Plugins/UsefulThings
+	url = git@github.com:Poryadok/UsefulThings.git
+	branch = zenject

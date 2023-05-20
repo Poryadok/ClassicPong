@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6065362173216175491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1771989726073214, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 380.42822
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 243.25702
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.606236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210853799743252, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82167797074185256, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243128477116115270, guid: 8b72b4e63fd79684f8a5666d2e828560,
+        type: 2}
+    - target: {fileID: 82572603849608744, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243993255244339532, guid: 8b72b4e63fd79684f8a5666d2e828560,
+        type: 2}
+    - target: {fileID: 82884414744853944, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243878749173974398, guid: 8b72b4e63fd79684f8a5666d2e828560,
+        type: 2}
+    - target: {fileID: 82938653858533904, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243878749173974398, guid: 8b72b4e63fd79684f8a5666d2e828560,
+        type: 2}
+    - target: {fileID: 114915486243786392, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: MainMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 8b72b4e63fd79684f8a5666d2e828560,
+        type: 2}
+    - target: {fileID: 114915486243786392, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: VoiceSource
+      value: 
+      objectReference: {fileID: 6127470112577862571}
+    - target: {fileID: 114915486243786392, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: LoopSfxSource
+      value: 
+      objectReference: {fileID: 6127719234151401531}
+    - target: {fileID: 114915486243786392, guid: 5995c220dc2a1f34fbc84b790a05da72,
+        type: 3}
+      propertyPath: SingleSfxSource
+      value: 
+      objectReference: {fileID: 6127946117792868243}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5995c220dc2a1f34fbc84b790a05da72, type: 3}
+--- !u!82 &6127470112577862571 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82572603849608744, guid: 5995c220dc2a1f34fbc84b790a05da72,
+    type: 3}
+  m_PrefabInstance: {fileID: 6065362173216175491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6127946117792868243 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82938653858533904, guid: 5995c220dc2a1f34fbc84b790a05da72,
+    type: 3}
+  m_PrefabInstance: {fileID: 6065362173216175491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6127719234151401531 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82884414744853944, guid: 5995c220dc2a1f34fbc84b790a05da72,
+    type: 3}
+  m_PrefabInstance: {fileID: 6065362173216175491}
+  m_PrefabAsset: {fileID: 0}
