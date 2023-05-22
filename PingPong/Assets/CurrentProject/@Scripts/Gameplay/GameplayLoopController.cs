@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PM.PingPong.New
+namespace PM.PingPong.Gameplay
 {
 public class GameplayLoopController : MonoBehaviour
 {

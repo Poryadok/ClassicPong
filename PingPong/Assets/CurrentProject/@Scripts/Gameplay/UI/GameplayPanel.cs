@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-public class GameplaySceneBuilder : MonoBehaviour
+public class GameplayPanel : MonoBehaviour
 {
 
 }

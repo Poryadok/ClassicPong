@@ -1,10 +1,20 @@
-using System.Collections.Generic;
-using UnityEngine;
+using Unity.Netcode;
+using Zenject;
 
-namespace PM.PingPong.New
+namespace PM.PingPong.General
 {
-public class NetworkFacade : MonoBehaviour
-{
+	public class NetworkFacade
+	{
+		[Inject] private NetworkManager networkManager;
 
-}
+		public void Host()
+		{
+			
+		}
+
+		public void Join()
+		{
+			
+		}
+	}
 }
