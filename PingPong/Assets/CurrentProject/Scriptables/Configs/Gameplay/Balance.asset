@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7b2c5bad82ad34698f9baabaaa2727, type: 3}
-  m_Name: Client Player Avatar Runtime Collection
+  m_Script: {fileID: 11500000, guid: 74a467ab9d0305049a9892ba0ecab395, type: 3}
+  m_Name: Balance
   m_EditorClassIdentifier: 
-  Items: []
+  BallSpeed: 0

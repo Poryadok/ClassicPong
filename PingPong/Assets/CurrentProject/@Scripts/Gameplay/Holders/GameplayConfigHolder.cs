@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-public class GameplayConfigHolder : MonoBehaviour
+	// [CreateAssetMenu]
+public class GameplayConfigHolder : ScriptableObject
 {
 
 }

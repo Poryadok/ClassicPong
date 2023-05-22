@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PM.PingPong.General
 {
-	[CreateAssetMenu]
+	// [CreateAssetMenu]
 	public class GameSettings : ScriptableObject
 	{
 		public GameMode GameMode;

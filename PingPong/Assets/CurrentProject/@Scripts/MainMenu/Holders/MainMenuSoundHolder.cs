@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PM.PingPong.MainMenu
 {
-public class MainMenuSoundHolder : MonoBehaviour
-{
-
-}
+	// [CreateAssetMenu]
+	public class MainMenuSoundHolder : ScriptableObject
+	{
+	}
 }

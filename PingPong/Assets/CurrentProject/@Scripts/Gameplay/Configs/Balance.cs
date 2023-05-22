@@ -1,10 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-public class Balance : MonoBehaviour
-{
-
-}
+	// [CreateAssetMenu]
+	public class Balance : ScriptableObject
+	{
+		public float BallSpeed;
+	}
 }

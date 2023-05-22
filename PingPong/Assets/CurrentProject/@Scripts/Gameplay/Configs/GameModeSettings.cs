@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-	[CreateAssetMenu]
+	// [CreateAssetMenu]
 	public class GameModeSettings : ScriptableObject
 	{
 		public GameMode GameMode;
