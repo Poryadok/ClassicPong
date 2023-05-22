@@ -1,10 +1,25 @@
-using System.Collections.Generic;
-using UnityEngine;
+using PM.UsefulThings;
+using UIBinding;
+using Zenject;
 
 namespace PM.PingPong.Gameplay
 {
-public class GameplayPanel : MonoBehaviour
-{
+	public class GameplayPanel : AbPanel
+	{
+		private IntProperty scoreBottom = new IntProperty();
+		private IntProperty scoreTop = new IntProperty();
+		
+		private GameplayLoopController gameplayLoopController;
 
-}
+		[Inject]
+		public void Construct(GameplayLoopController gameplayLoopController)
+		{
+			this.gameplayLoopController = gameplayLoopController;
+		}
+
+		public void Quit()
+		{
+			gameplayLoopController.Quit();
+		}
+	}
 }

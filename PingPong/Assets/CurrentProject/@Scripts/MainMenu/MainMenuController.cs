@@ -6,7 +6,6 @@ namespace PM.PingPong.MainMenu
 {
 	public class MainMenuController : MonoBehaviour
 	{
-		private LobbyFacade lobbyFacade;
 		private WindowManagerUT windowManager;
 
 		[Inject]
@@ -19,14 +18,9 @@ namespace PM.PingPong.MainMenu
 			windowManager.OpenNewPanel<MainMenuPanel>();
 		}
 
-		public void StartLobby()
+		public void SelectGameMode()
 		{
-			lobbyFacade.StartLobby();
-		}
-
-		public void JoinLobby()
-		{
-			lobbyFacade.JoinLobby();
+			windowManager.OpenNewPanel<GameModeSelectionPanel>();
 		}
 	}
 }

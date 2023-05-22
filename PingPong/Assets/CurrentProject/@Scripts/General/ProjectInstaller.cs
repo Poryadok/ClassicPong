@@ -1,5 +1,4 @@
 using PM.UsefulThings;
-using Unity.Netcode;
 using Zenject;
 
 namespace PM.PingPong.General
@@ -10,17 +9,10 @@ namespace PM.PingPong.General
 		
 		public override void InstallBindings()
 		{
-			Container.Bind<NetworkManager>()
-				.FromInstance(NetworkManager.Singleton)
-				.AsSingle()
-				.NonLazy();
-
-			Container.Bind<NetworkFacade>()
-				.AsSingle()
-				.NonLazy();
-
+			// sound manager is a singleton, it doesn't like being a child
+			var soundManagerInstance = Instantiate(SoundManagerPrefab);
 			Container.Bind<SoundManager>()
-				.FromComponentInNewPrefab(SoundManagerPrefab)
+				.FromInstance(soundManagerInstance)
 				.AsSingle()
 				.NonLazy();
 		}
