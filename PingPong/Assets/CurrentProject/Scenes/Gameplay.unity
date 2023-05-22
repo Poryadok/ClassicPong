@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42224983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42224985}
+  - component: {fileID: 42224984}
+  m_Layer: 0
+  m_Name: GameplaySceneBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &42224984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42224983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361a01df4598f3a4890038da49028869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &42224985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42224983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 575.3126, y: 1804.8187, z: 5.69697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120145128
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +361,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5cfb09f90b1d946afcecf66ab830ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GeneralConfigHolder: {fileID: 11400000, guid: b8b19f8b5f70e03479da613968c282db, type: 2}
+  GameplayConfigHolder: {fileID: 11400000, guid: 11573e549c9b2784bb5c478e25fd7d8d, type: 2}
+  GameplayPrefabHolder: {fileID: 11400000, guid: 76a7a374992f01445b5c1569c4add85b, type: 2}
+  GameplaySoundHolder: {fileID: 11400000, guid: c0c0bbc12697f5c48ba6a6261a5fa1a8, type: 2}
+  GameplaySceneBuilder: {fileID: 42224984}
+  GameplayLoopController: {fileID: 1875060038}
   WindowManager: {fileID: 450153884}
 --- !u!114 &531443522
 MonoBehaviour:
@@ -459,3 +509,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1875060037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875060039}
+  - component: {fileID: 1875060038}
+  m_Layer: 0
+  m_Name: GameplayLoopController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1875060038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875060037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144d1af0e4cc1b94eb700d7ba434f65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1875060039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875060037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 575.3126, y: 1804.8187, z: 5.69697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

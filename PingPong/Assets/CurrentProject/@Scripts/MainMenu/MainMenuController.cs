@@ -1,26 +1,28 @@
 using PM.UsefulThings;
 using UnityEngine;
 using Zenject;
+using IInitializable = Zenject.IInitializable;
 
 namespace PM.PingPong.MainMenu
 {
-	public class MainMenuController : MonoBehaviour
+	public class MainMenuController : MonoBehaviour, IInitializable
 	{
 		private WindowManagerUT windowManager;
 
 		[Inject]
-		public void Construct()
+		public void Construct(WindowManagerUT windowManager)
 		{
-		}
-
-		public void Start()
-		{
-			windowManager.OpenNewPanel<MainMenuPanel>();
+			this.windowManager = windowManager;
 		}
 
 		public void SelectGameMode()
 		{
-			windowManager.OpenNewPanel<GameModeSelectionPanel>();
+			windowManager.OpenNewPanel<GameModeSelectionPanel>(WindowCloseModes.CloseEverything);
+		}
+
+		public void Initialize()
+		{
+			windowManager.OpenNewPanel<MainMenuPanel>();
 		}
 	}
 }
