@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PM.PingPong.MainMenu
 {
-public class MainMenuPane : MonoBehaviour
+public class MainMenuPanel : MonoBehaviour
 {
 
 }
