@@ -20,7 +20,7 @@ namespace PM.PingPong.Gameplay
 
 			if (Mathf.Abs(Vector3.Dot(myRigidbody.velocity, Vector3.forward)) < 0.1f)
 			{
-				var friendlyPush = 0.1f * (myRigidbody.velocity.z > 0 ? 1 : -1) * Vector3.forward;
+				var friendlyPush = 0.5f * (myRigidbody.velocity.z > 0 ? 1 : -1) * Vector3.forward;
 				myRigidbody.velocity += friendlyPush;
 			}
 		}

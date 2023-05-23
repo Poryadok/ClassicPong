@@ -45,6 +45,7 @@ namespace PM.PingPong.Gameplay
 		{
 			SetupObjects();
 			windowManager.OpenNewPanel<GameplayPanel>(WindowCloseModes.CloseEverything);
+			windowManager.OpenNewPanel<GameplayInputPanel>();
 			gameplayStateController.StartGame();
 		}
 

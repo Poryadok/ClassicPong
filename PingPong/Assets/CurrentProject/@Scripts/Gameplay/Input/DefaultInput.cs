@@ -63,8 +63,8 @@ namespace PM.PingPong.Gameplay
                     ""id"": ""978bfe49-cc26-4a3d-ab7b-7d7a29327403"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad;Keyboard&Mouse;Touch;Joystick;XR"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
