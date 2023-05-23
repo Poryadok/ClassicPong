@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-	public class Goal : MonoBehaviour
+	public class Wall : MonoBehaviour
 	{
-		public event Action OnGoal;
-		
+		public event Action OnHit;
+
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.gameObject.CompareTag("Ball"))
 			{
-				OnGoal?.Invoke();
+				OnHit?.Invoke();
 			}
 		}
 	}

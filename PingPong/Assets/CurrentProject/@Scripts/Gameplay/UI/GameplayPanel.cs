@@ -12,11 +12,13 @@ namespace PM.PingPong.Gameplay
 		private IntProperty scoreTop = new IntProperty();
 		
 		private GameplayLoopController gameplayLoopController;
+		private GameplayStateController gameplayStateController;
 
 		[Inject]
-		public void Construct(GameplayLoopController gameplayLoopController)
+		public void Construct(GameplayLoopController gameplayLoopController, GameplayStateController gameplayStateController)
 		{
 			this.gameplayLoopController = gameplayLoopController;
+			this.gameplayStateController = gameplayStateController;
 		}
 
 		private void Start()
@@ -32,7 +34,7 @@ namespace PM.PingPong.Gameplay
 
 		public void Quit()
 		{
-			gameplayLoopController.Quit();
+			gameplayStateController.Pause();
 		}
 	}
 }

@@ -24,7 +24,7 @@ namespace PM.PingPong.Gameplay
 			}
 		}
 
-		private void Update()
+		private void FixedUpdate()
 		{
 			if (rigidbody.velocity.magnitude > 15f)
 			{

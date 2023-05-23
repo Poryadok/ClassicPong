@@ -11,10 +11,12 @@ namespace PM.PingPong.Gameplay
 	{
 		private GeneralConfigHolder generalConfigHolder;
 		private WindowManagerUT windowManager;
+		private GameplayStateController gameplayStateController;
 		
 		[Inject]
-		public void Construct(GeneralConfigHolder generalConfigHolder, WindowManagerUT windowManagerUt)
+		public void Construct(GeneralConfigHolder generalConfigHolder, WindowManagerUT windowManagerUt, GameplayStateController gameplayStateController)
 		{
+			this.gameplayStateController = gameplayStateController;
 			this.generalConfigHolder = generalConfigHolder;
 			windowManager = windowManagerUt;
 		}
@@ -22,6 +24,7 @@ namespace PM.PingPong.Gameplay
 		public void Initialize()
 		{
 			windowManager.OpenNewPanel<GameplayPanel>(WindowCloseModes.CloseEverything);
+			gameplayStateController.StartGame();
 		}
 	}
 }

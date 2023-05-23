@@ -14,6 +14,7 @@ namespace PM.PingPong.Gameplay
 		
 		public GameplaySceneBuilder GameplaySceneBuilder;
 		public GameplayLoopController GameplayLoopController;
+		public GameplayStateController GameplayStateController;
 
 		public WindowManagerUT WindowManager;
 		
@@ -51,6 +52,11 @@ namespace PM.PingPong.Gameplay
 
 			Container.Bind<GameplayLoopController>()
 				.FromInstance(GameplayLoopController)
+				.AsSingle()
+				.NonLazy();
+
+			Container.Bind<GameplayStateController>()
+				.FromInstance(GameplayStateController)
 				.AsSingle()
 				.NonLazy();
 
