@@ -10,6 +10,7 @@ namespace PM.PingPong.Gameplay
 		public GameplayConfigHolder GameplayConfigHolder;
 		public GameplayPrefabHolder GameplayPrefabHolder;
 		public GameplaySoundHolder GameplaySoundHolder;
+		public InputFacade InputFacade;
 		
 		public GameplaySceneBuilder GameplaySceneBuilder;
 		public GameplayLoopController GameplayLoopController;
@@ -50,6 +51,11 @@ namespace PM.PingPong.Gameplay
 
 			Container.Bind<GameplayLoopController>()
 				.FromInstance(GameplayLoopController)
+				.AsSingle()
+				.NonLazy();
+
+			Container.Bind<InputFacade>()
+				.FromInstance(InputFacade)
 				.AsSingle()
 				.NonLazy();
 		}
