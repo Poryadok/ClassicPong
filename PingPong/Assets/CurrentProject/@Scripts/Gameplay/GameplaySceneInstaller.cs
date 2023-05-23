@@ -11,13 +11,13 @@ namespace PM.PingPong.Gameplay
 		public GameplayPrefabHolder GameplayPrefabHolder;
 		public GameplaySoundHolder GameplaySoundHolder;
 		public InputFacade InputFacade;
-		
+
 		public GameplaySceneBuilder GameplaySceneBuilder;
 		public GameplayLoopController GameplayLoopController;
 		public GameplayStateController GameplayStateController;
 
 		public WindowManagerUT WindowManager;
-		
+
 		public override void InstallBindings()
 		{
 			Container.Bind<WindowManagerUT>()
@@ -64,6 +64,9 @@ namespace PM.PingPong.Gameplay
 				.FromInstance(InputFacade)
 				.AsSingle()
 				.NonLazy();
+
+			Container.BindFactory<bool, AbRocketLogic, AbRocketLogic.LogicFactory>()
+				.FromFactory<AbRocketLogic.RocketLogicFactory>();
 		}
 	}
 }

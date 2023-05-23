@@ -15,20 +15,22 @@ namespace PM.PingPong.Gameplay
 
 		public Vector2Int Score;
 
-		public Rigidbody RocketTop;
-		public Rigidbody RocketBottom;
+		public Rocket RocketTop;
+		public Rocket RocketBottom;
 		public Goal GoalTop;
 		public Goal GoalBottom;
 		public Rigidbody Ball;
 		public Wall[] Walls;
 
+		private bool isInitialized;
+		
 		private GameModeSettings settings;
 
 		private InputFacade inputFacade;
 		private GeneralConfigHolder generalConfigHolder;
 		private GameplayConfigHolder gameplayConfigHolder;
 		private WindowManagerUT windowManager;
-
+		
 		[Inject]
 		public void Construct(InputFacade inputFacade, GeneralConfigHolder generalConfigHolder,
 			GameplayConfigHolder gameplayConfigHolder, WindowManagerUT windowManagerUt)
@@ -45,7 +47,6 @@ namespace PM.PingPong.Gameplay
 				x.GameMode == generalConfigHolder.GameSettings.GameMode);
 			
 			ResetBall();
-			inputFacade.OnMove += OnMoveHandler;
 
 			GoalTop.OnGoal += OnTopGoalHandler;
 			GoalBottom.OnGoal += OnBottomGoalHandler;
@@ -54,6 +55,17 @@ namespace PM.PingPong.Gameplay
 			{
 				wall.OnHit += OnWallHitHandler;
 			}
+
+			isInitialized = true;
+		}
+
+		private void FixedUpdate()
+		{
+			if (!isInitialized)
+				return;
+			
+			MoveRocket(RocketTop);
+			MoveRocket(RocketBottom);
 		}
 
 		private void OnWallHitHandler()
@@ -63,7 +75,6 @@ namespace PM.PingPong.Gameplay
 
 		private void OnDestroy()
 		{
-			inputFacade.OnMove -= OnMoveHandler;
 			GoalTop.OnGoal -= OnTopGoalHandler;
 			GoalBottom.OnGoal -= OnBottomGoalHandler;
 
@@ -103,27 +114,26 @@ namespace PM.PingPong.Gameplay
 			Ball.velocity = (Random.value > 0.5f ? Vector3.back : Vector3.forward) * 15f;
 		}
 
-		private void OnMoveHandler(float value)
+		private void MoveRocket(Rocket rocket)
 		{
+			var value = rocket.Logic.GetMovement(rocket.Rigidbody, Ball);
+
+			var targetRigidBody = rocket.Rigidbody;
+			var currentVelocity = targetRigidBody.velocity;
 			if (value == 0)
 			{
-				RocketBottom.velocity = RocketBottom.velocity.normalized * (RocketBottom.velocity.magnitude * 0.95f);
-				RocketTop.velocity = RocketTop.velocity.normalized * (RocketTop.velocity.magnitude * 0.95f);
+				targetRigidBody.velocity = currentVelocity.normalized * (currentVelocity.magnitude * 0.95f);
 			}
 			else
 			{
-				RocketBottom.velocity += value * Time.deltaTime * 50f * Vector3.right;
-				RocketTop.velocity += value * Time.deltaTime * 50f * Vector3.right;
+				targetRigidBody.velocity += value * Time.deltaTime * 50f * Vector3.right;
 			}
+			
+			currentVelocity = targetRigidBody.velocity;
 
-			if (RocketBottom.velocity.magnitude > 15f)
+			if (currentVelocity.magnitude > 15f)
 			{
-				RocketBottom.velocity = RocketBottom.velocity.normalized * 15f;
-			}
-
-			if (RocketTop.velocity.magnitude > 15f)
-			{
-				RocketTop.velocity = RocketTop.velocity.normalized * 15f;
+				targetRigidBody.velocity = currentVelocity.normalized * 15f;
 			}
 		}
 	}

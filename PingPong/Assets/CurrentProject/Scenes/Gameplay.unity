@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RocketTop
       objectReference: {fileID: 0}
+    - target: {fileID: 6850542407347831164, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6729232f398e198469f6d40435f55ec5, type: 2}
     - target: {fileID: 8263027357385308744, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
       propertyPath: m_Mass
       value: 1e+9
@@ -234,6 +238,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361a01df4598f3a4890038da49028869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RocketTop: {fileID: 1750424083}
+  RocketBottom: {fileID: 822105944}
+  GoalTop: {fileID: 27755627}
+  GoalBottom: {fileID: 689710603}
+  Ball: {fileID: 931285722}
+  Walls:
+  - {fileID: 8096647203674030382}
+  - {fileID: 8096647203674030383}
 --- !u!4 &42224985
 Transform:
   m_ObjectHideFlags: 0
@@ -516,11 +528,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15468a40d6ca99479eb756b142d950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &822105945 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8263027357385308744, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
+--- !u!114 &822105944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8208603361511824979, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
   m_PrefabInstance: {fileID: 178031962830121478}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f53fd1a90637048a1b1febc1332f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931285717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6285324386625366230, guid: 70ca7640008b68a4eba1a10da5efb11e, type: 3}
@@ -703,11 +721,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
---- !u!54 &1750424082 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8263027357385308744, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
+--- !u!114 &1750424083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8208603361511824979, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
   m_PrefabInstance: {fileID: 13858635}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f53fd1a90637048a1b1febc1332f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1755335885
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +793,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 303d20156d5feb448bfe73029a3afbc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -844,8 +868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {x: 0, y: 0}
-  RocketTop: {fileID: 1750424082}
-  RocketBottom: {fileID: 822105945}
+  RocketTop: {fileID: 1750424083}
+  RocketBottom: {fileID: 822105944}
   GoalTop: {fileID: 27755627}
   GoalBottom: {fileID: 689710603}
   Ball: {fileID: 931285722}
@@ -923,6 +947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RocketBottom
       objectReference: {fileID: 0}
+    - target: {fileID: 6850542407347831164, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc5986db3bd15c14db53f1af37ddf02b, type: 2}
     - target: {fileID: 8263027357385308744, guid: e371dec24fc92224d8412c0fc3bb28e5, type: 3}
       propertyPath: m_Mass
       value: 1e+9
@@ -1028,6 +1056,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3234382246305234346, guid: 70ca7640008b68a4eba1a10da5efb11e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234382246305234346, guid: 70ca7640008b68a4eba1a10da5efb11e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45709946245d77044ab7ab726bef3061, type: 2}
+    - target: {fileID: 3234382246305234346, guid: 70ca7640008b68a4eba1a10da5efb11e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45709946245d77044ab7ab726bef3061, type: 2}
     - target: {fileID: 6285324386625366230, guid: 70ca7640008b68a4eba1a10da5efb11e, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -1138,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 594952676423131701, guid: f25ff665b6c5f9c4c82e0badc8fce8f3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 303d20156d5feb448bfe73029a3afbc7, type: 2}
     - target: {fileID: 2237110027268595623, guid: f25ff665b6c5f9c4c82e0badc8fce8f3, type: 3}
       propertyPath: m_Material
       value: 
@@ -1154,6 +1198,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3398274902504282777, guid: f25ff665b6c5f9c4c82e0badc8fce8f3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 303d20156d5feb448bfe73029a3afbc7, type: 2}
     - target: {fileID: 8894258649846318116, guid: f25ff665b6c5f9c4c82e0badc8fce8f3, type: 3}
       propertyPath: m_RootOrder
       value: 10

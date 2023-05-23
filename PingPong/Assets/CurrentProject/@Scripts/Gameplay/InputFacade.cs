@@ -7,8 +7,6 @@ namespace PM.PingPong.Gameplay
 {
 	public class InputFacade : MonoBehaviour
 	{
-		public event Action<float> OnMove;
-
 		private DefaultInput input;
 
 		private GameplayStateController gameplayStateController;
@@ -34,9 +32,9 @@ namespace PM.PingPong.Gameplay
 			input.Player.Disable();
 		}
 
-		private void Update()
+		public float GetMovementInput()
 		{
-			OnMove?.Invoke(input.Player.Move.ReadValue<Vector2>().x);
+			return input.Player.Move.ReadValue<Vector2>().x;
 		}
 	}
 }
