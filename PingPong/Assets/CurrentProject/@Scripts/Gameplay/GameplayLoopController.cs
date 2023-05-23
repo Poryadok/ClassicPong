@@ -12,6 +12,7 @@ namespace PM.PingPong.Gameplay
 	public class GameplayLoopController : MonoBehaviour
 	{
 		public event Action<Vector2Int> OnScoreChanged;
+		public event Action OnGameStarted;
 		public event Action OnGameOver;
 
 		public Vector2Int Score;
@@ -63,6 +64,7 @@ namespace PM.PingPong.Gameplay
 			}
 
 			isInitialized = true;
+			OnGameStarted?.Invoke();
 		}
 
 		private void FixedUpdate()

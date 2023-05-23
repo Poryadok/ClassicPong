@@ -1,4 +1,3 @@
-using System;
 using PM.PingPong.General;
 using PM.UsefulThings;
 using UIBinding;
@@ -9,7 +8,7 @@ namespace PM.PingPong.MainMenu
 	public class GameModeSelectionPanel : AbPanel
 	{
 		private readonly BoolProperty areWallsReset = new();
-		
+
 		private GameModeSelector gameModeSelector;
 		private GeneralConfigHolder generalConfigHolder;
 

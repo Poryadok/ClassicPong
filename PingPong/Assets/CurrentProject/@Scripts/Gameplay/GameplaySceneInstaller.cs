@@ -65,6 +65,10 @@ namespace PM.PingPong.Gameplay
 				.AsSingle()
 				.NonLazy();
 
+			Container.Bind<BestScoreController>()
+				.AsSingle()
+				.NonLazy();
+
 			Container.BindFactory<bool, AbRocketLogic, AbRocketLogic.LogicFactory>()
 				.FromFactory<AbRocketLogic.RocketLogicFactory>();
 		}
