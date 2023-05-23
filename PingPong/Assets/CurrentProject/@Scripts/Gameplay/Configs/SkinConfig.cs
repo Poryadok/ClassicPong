@@ -1,18 +1,14 @@
-using System;
-using PM.PingPong.MainMenu;
+using PM.PingPong.General;
 using PM.UsefulThings.Extensions;
-using UnityEditor;
 using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
 	[CreateAssetMenu]
-	public class SkinItem : ScriptableObject
+	public class SkinConfig : ScriptableObject
 	{
-		[ReadOnly]
-		public string Id;
-		[ReadOnly]
-		public bool IsDefault;
+		[ReadOnly] public string Id;
+		[ReadOnly] public bool IsDefault;
 		public GameObject Prefab;
 		public Color Color;
 

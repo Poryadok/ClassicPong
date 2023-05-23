@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b2d08a4f9ef3649b49cbcfcc126cbb, type: 3}
   m_Name: Gameplay Config Holder
   m_EditorClassIdentifier: 
+  Balance: {fileID: 11400000, guid: 7563e3087f6f15545856e22d0959cb05, type: 2}
+  Skins:
+  - {fileID: 11400000, guid: 7b86a37e61dce8349adb746731da8821, type: 2}
+  - {fileID: 11400000, guid: 65a13076074b2c04280cfdfbfe31cc5d, type: 2}
+  - {fileID: 11400000, guid: 86380600e1b3391499fe16c3bd844a4b, type: 2}
+  - {fileID: 11400000, guid: dfba04652f70a1e4aab348b25cce859a, type: 2}

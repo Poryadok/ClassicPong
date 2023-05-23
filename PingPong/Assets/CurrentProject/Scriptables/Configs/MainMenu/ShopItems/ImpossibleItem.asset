@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060318ba7e289204a90f00bb794001ba, type: 3}
   m_Name: ImpossibleItem
   m_EditorClassIdentifier: 
+  Id: 9bae62983223fc9458d603b6f079a556
   IsDefault: 0
-  Name: Watch some ads
+  Name: For slow slider
   Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Color: {r: 0.9818444, g: 1, b: 0, a: 1}
   Cost: 20

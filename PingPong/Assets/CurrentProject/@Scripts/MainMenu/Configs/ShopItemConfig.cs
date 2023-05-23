@@ -2,7 +2,7 @@ using PM.UsefulThings.Extensions;
 using UnityEditor;
 using UnityEngine;
 
-namespace PM.PingPong.MainMenu
+namespace PM.PingPong.General
 {
 	// [CreateAssetMenu]
 	public class ShopItemConfig : ScriptableObject

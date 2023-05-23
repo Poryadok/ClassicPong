@@ -8,6 +8,7 @@ namespace PM.PingPong.MainMenu
 	{
 		public GeneralConfigHolder GeneralConfigHolder;
 		public MainMenuSoundHolder MainMenuSoundHolder;
+		public MainMenuConfigHolder MainMenuConfigHolder;
 		
 		public MainMenuController MainMenuController;
 
@@ -30,6 +31,11 @@ namespace PM.PingPong.MainMenu
 				.AsSingle()
 				.NonLazy();
 
+			Container.Bind<MainMenuConfigHolder>()
+				.FromInstance(MainMenuConfigHolder)
+				.AsSingle()
+				.NonLazy();
+
 			Container.BindInterfacesAndSelfTo<MainMenuController>()
 				.FromInstance(MainMenuController)
 				.AsSingle()
@@ -38,6 +44,15 @@ namespace PM.PingPong.MainMenu
 			Container.Bind<GameModeSelector>()
 				.AsSingle()
 				.NonLazy();
+
+			Container.Bind<FirstOpenAppSetup>()
+				.AsSingle()
+				.NonLazy();
+
+			Container.Bind<Merchandiser>()
+				.AsSingle();
+
+			Container.BindFactory<ShopItemConfig, ShopListElementData, ShopListElementData.ShopLEDFactory>();
 		}
 	}
 }

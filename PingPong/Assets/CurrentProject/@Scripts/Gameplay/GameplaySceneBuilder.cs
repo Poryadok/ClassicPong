@@ -1,5 +1,6 @@
 using System;
 using PM.PingPong.General;
+using PM.PingPong.MainMenu;
 using PM.UsefulThings;
 using PM.UsefulThings.Extensions;
 using UnityEngine;
@@ -18,17 +19,26 @@ namespace PM.PingPong.Gameplay
 		public Wall[] Walls;
 
 		private GeneralConfigHolder generalConfigHolder;
+		private GameplayConfigHolder gameplayConfigHolder;
 		private WindowManagerUT windowManager;
 		private GameplayStateController gameplayStateController;
 		private AbRocketLogic.LogicFactory logicFactory;
+		private Merchandiser merchandiser;
 		
 		[Inject]
-		public void Construct(GeneralConfigHolder generalConfigHolder, WindowManagerUT windowManagerUt, GameplayStateController gameplayStateController, AbRocketLogic.LogicFactory logicFactory)
+		public void Construct(GameplayConfigHolder gameplayConfigHolder,
+			GeneralConfigHolder generalConfigHolder, 
+			WindowManagerUT windowManagerUt, 
+			GameplayStateController gameplayStateController, 
+			AbRocketLogic.LogicFactory logicFactory,
+			Merchandiser merchandiser)
 		{
+			this.gameplayConfigHolder = gameplayConfigHolder;
 			this.gameplayStateController = gameplayStateController;
 			this.generalConfigHolder = generalConfigHolder;
 			windowManager = windowManagerUt;
 			this.logicFactory = logicFactory;
+			this.merchandiser = merchandiser;
 		}
 
 		public void Initialize()
@@ -54,6 +64,11 @@ namespace PM.PingPong.Gameplay
 					wall.GetComponent<Collider>().isTrigger = false;
 				}
 			}
+
+			var activeSkinId = merchandiser.GetActiveSkin();
+			var activeSkin = gameplayConfigHolder.Skins.Find(x => x.Id == activeSkinId);
+			var skin = Instantiate(activeSkin.Prefab, Ball.transform);
+			skin.GetComponent<MeshRenderer>().material.color = activeSkin.Color;
 		}
 	}
 }

@@ -18,5 +18,10 @@ namespace PM.PingPong.MainMenu
 		{
 			mainMenuController.SelectGameMode();
 		}
+
+		public void OpenShop()
+		{
+			mainMenuController.OpenShop();
+		}
 	}
 }

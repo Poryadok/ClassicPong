@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GeneralConfigHolder: {fileID: 11400000, guid: b8b19f8b5f70e03479da613968c282db, type: 2}
   MainMenuSoundHolder: {fileID: 11400000, guid: a2be16633965fd444b40523caccba03f, type: 2}
+  MainMenuConfigHolder: {fileID: 11400000, guid: 0a02cee7a3a0eba4cbb3491c53a7d572, type: 2}
   MainMenuController: {fileID: 204531594}
   WindowManager: {fileID: 121876976}
 --- !u!114 &95066380

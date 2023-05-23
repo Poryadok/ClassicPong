@@ -35,6 +35,8 @@ namespace PM.PingPong.Gameplay
 		private GameplayConfigHolder gameplayConfigHolder;
 		private WindowManagerUT windowManager;
 
+		public bool IsVictory => Score.x > Score.y;
+		
 		[Inject]
 		public void Construct(InputFacade inputFacade, GeneralConfigHolder generalConfigHolder,
 			GameplayConfigHolder gameplayConfigHolder, WindowManagerUT windowManagerUt)

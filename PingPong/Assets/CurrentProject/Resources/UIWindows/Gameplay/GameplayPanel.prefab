@@ -847,6 +847,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2510801399765249690}
     m_Modifications:
+    - target: {fileID: 524604242279061635, guid: ff675d3021a184b4baa2be3e7915b320, type: 3}
+      propertyPath: m_text
+      value: PAUSE
+      objectReference: {fileID: 0}
+    - target: {fileID: 524604242279061635, guid: ff675d3021a184b4baa2be3e7915b320, type: 3}
+      propertyPath: m_fontSize
+      value: 27.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4851514733138906683, guid: ff675d3021a184b4baa2be3e7915b320, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

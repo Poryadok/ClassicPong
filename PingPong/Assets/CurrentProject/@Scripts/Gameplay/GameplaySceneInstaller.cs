@@ -1,4 +1,5 @@
 using PM.PingPong.General;
+using PM.PingPong.MainMenu;
 using PM.UsefulThings;
 using Zenject;
 
@@ -71,6 +72,13 @@ namespace PM.PingPong.Gameplay
 
 			Container.BindFactory<bool, AbRocketLogic, AbRocketLogic.LogicFactory>()
 				.FromFactory<AbRocketLogic.RocketLogicFactory>();
+			
+			Container.Bind<Merchandiser>()
+				.AsSingle();
+			
+			Container.Bind<RewardCollector>()
+				.AsSingle()
+				.NonLazy();
 		}
 	}
 }

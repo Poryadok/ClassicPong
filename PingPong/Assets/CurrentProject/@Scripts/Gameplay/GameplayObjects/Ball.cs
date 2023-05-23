@@ -5,32 +5,32 @@ namespace PM.PingPong.Gameplay
 {
 	public class Ball : MonoBehaviour
 	{
-		private Rigidbody rigidbody;
+		private Rigidbody myRigidbody;
 
 		private void Awake()
 		{
-			rigidbody = GetComponent<Rigidbody>();
+			myRigidbody = GetComponent<Rigidbody>();
 		}
 
 		private void ResetSpeed(float rocketVelocity)
 		{
 			var speedMultiplier = 1 + Mathf.Abs(rocketVelocity / (2 * 15f));
-			rigidbody.velocity = 15f * speedMultiplier *
-			                     (rigidbody.velocity + new Vector3(rocketVelocity / 15f, 0, 0)).normalized;
+			myRigidbody.velocity = 15f * speedMultiplier *
+			                     (myRigidbody.velocity + new Vector3(rocketVelocity / 15f, 0, 0)).normalized;
 
-			if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, Vector3.forward)) < 0.1f)
+			if (Mathf.Abs(Vector3.Dot(myRigidbody.velocity, Vector3.forward)) < 0.1f)
 			{
-				var friendlyPush = 0.1f * (rigidbody.velocity.z > 0 ? 1 : -1) * Vector3.forward;
-				rigidbody.velocity += friendlyPush;
+				var friendlyPush = 0.1f * (myRigidbody.velocity.z > 0 ? 1 : -1) * Vector3.forward;
+				myRigidbody.velocity += friendlyPush;
 			}
 		}
 
 		private void FixedUpdate()
 		{
-			if (rigidbody.velocity != Vector3.zero && Math.Abs(rigidbody.velocity.magnitude - 15f) > 0.1f)
+			if (myRigidbody.velocity != Vector3.zero && Math.Abs(myRigidbody.velocity.magnitude - 15f) > 0.1f)
 			{
-				rigidbody.velocity =
-					Vector3.Lerp(rigidbody.velocity, rigidbody.velocity.normalized * 15f, Time.deltaTime);
+				myRigidbody.velocity =
+					Vector3.Lerp(myRigidbody.velocity, myRigidbody.velocity.normalized * 15f, Time.deltaTime);
 			}
 			// else if (rigidbody.velocity.magnitude < 15f)
 			// {

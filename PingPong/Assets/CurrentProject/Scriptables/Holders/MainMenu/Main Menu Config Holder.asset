@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186084b5faa821846b6e55c68156e0ea, type: 3}
-  m_Name: General Config Holder
+  m_Script: {fileID: 11500000, guid: 274b3165611ef784ebbcd13b9ef9dac8, type: 3}
+  m_Name: Main Menu Config Holder
   m_EditorClassIdentifier: 
-  GameSettings: {fileID: 11400000, guid: 055e0110da369b0448a488c62bfada09, type: 2}
-  GameModeSettings:
-  - {fileID: 11400000, guid: da91ad8bf9b40dd4e8ec94494a3beb03, type: 2}
-  - {fileID: 11400000, guid: 90c1e7780301cc24bbf194cbee022785, type: 2}
   ShopItems:
   - {fileID: 11400000, guid: c8fac327234151c4c89998ea2940f842, type: 2}
   - {fileID: 11400000, guid: ba5f21d75d0b4fa4b87d9dbbad944cc7, type: 2}
-  - {fileID: 11400000, guid: 52976dc79bbd0d84fab0240a0c31fb4b, type: 2}
   - {fileID: 11400000, guid: 285898e0f2e5e2a468a2601322b67fca, type: 2}
+  - {fileID: 11400000, guid: 52976dc79bbd0d84fab0240a0c31fb4b, type: 2}

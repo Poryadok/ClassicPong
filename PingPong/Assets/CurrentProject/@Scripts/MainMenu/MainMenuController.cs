@@ -24,5 +24,10 @@ namespace PM.PingPong.MainMenu
 		{
 			windowManager.OpenNewPanel<MainMenuPanel>();
 		}
+
+		public void OpenShop()
+		{
+			windowManager.OpenNewPanel<ShopPanel>();
+		}
 	}
 }
