@@ -1,5 +1,7 @@
+using System;
 using PM.UsefulThings;
 using UIBinding;
+using UnityEngine;
 using Zenject;
 
 namespace PM.PingPong.Gameplay
@@ -15,6 +17,17 @@ namespace PM.PingPong.Gameplay
 		public void Construct(GameplayLoopController gameplayLoopController)
 		{
 			this.gameplayLoopController = gameplayLoopController;
+		}
+
+		private void Start()
+		{
+			gameplayLoopController.OnScoreChanged += OnScoreChangedHandler;
+		}
+
+		private void OnScoreChangedHandler(Vector2Int score)
+		{
+			scoreBottom.value = score.x;
+			scoreTop.value = score.y;
 		}
 
 		public void Quit()
