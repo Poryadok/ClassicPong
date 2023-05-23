@@ -43,9 +43,17 @@ namespace PM.PingPong.Gameplay
 			Ball.transform.position = Vector3.zero;
 			RocketBottom.Logic = logicFactory.Create(true);
 			RocketTop.Logic = logicFactory.Create(
-				generalConfigHolder.GameModeSettings.Find(x =>
+				!generalConfigHolder.GameModeSettings.Find(x =>
 						x.GameMode == generalConfigHolder.GameSettings.GameMode)
 					.IsBotPlaying);
+			
+			if (!generalConfigHolder.GameSettings.AreWallsReset)
+			{
+				foreach (var wall in Walls)
+				{
+					wall.GetComponent<Collider>().isTrigger = false;
+				}
+			}
 		}
 	}
 }

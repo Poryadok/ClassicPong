@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PM.PingPong.Gameplay
@@ -26,15 +27,15 @@ namespace PM.PingPong.Gameplay
 
 		private void FixedUpdate()
 		{
-			if (rigidbody.velocity.magnitude > 15f)
+			if (rigidbody.velocity != Vector3.zero && Math.Abs(rigidbody.velocity.magnitude - 15f) > 0.1f)
 			{
 				rigidbody.velocity =
 					Vector3.Lerp(rigidbody.velocity, rigidbody.velocity.normalized * 15f, Time.deltaTime);
 			}
-			else if (rigidbody.velocity.magnitude < 15f)
-			{
-				rigidbody.velocity = rigidbody.velocity.normalized * 15f;
-			}
+			// else if (rigidbody.velocity.magnitude < 15f)
+			// {
+			// 	rigidbody.velocity = rigidbody.velocity.normalized * 15f;
+			// }
 		}
 
 		public void OnCollisionEnter(Collision other)

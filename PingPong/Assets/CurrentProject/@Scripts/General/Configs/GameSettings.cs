@@ -6,5 +6,6 @@ namespace PM.PingPong.General
 	public class GameSettings : ScriptableObject
 	{
 		public GameMode GameMode;
+		public bool AreWallsReset;
 	}
 }

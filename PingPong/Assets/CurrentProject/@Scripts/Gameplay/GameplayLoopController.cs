@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using PM.PingPong.General;
 using PM.UsefulThings;
 using PM.UsefulThings.Extensions;
@@ -23,14 +24,16 @@ namespace PM.PingPong.Gameplay
 		public Wall[] Walls;
 
 		private bool isInitialized;
-		
+
+		private Coroutine ResetCoroutine;
+
 		private GameModeSettings settings;
 
 		private InputFacade inputFacade;
 		private GeneralConfigHolder generalConfigHolder;
 		private GameplayConfigHolder gameplayConfigHolder;
 		private WindowManagerUT windowManager;
-		
+
 		[Inject]
 		public void Construct(InputFacade inputFacade, GeneralConfigHolder generalConfigHolder,
 			GameplayConfigHolder gameplayConfigHolder, WindowManagerUT windowManagerUt)
@@ -45,15 +48,18 @@ namespace PM.PingPong.Gameplay
 		{
 			settings = generalConfigHolder.GameModeSettings.Find(x =>
 				x.GameMode == generalConfigHolder.GameSettings.GameMode);
-			
-			ResetBall();
+
+			ResetCoroutine = StartCoroutine(ResetField());
 
 			GoalTop.OnGoal += OnTopGoalHandler;
 			GoalBottom.OnGoal += OnBottomGoalHandler;
 
-			foreach (var wall in Walls)
+			if (generalConfigHolder.GameSettings.AreWallsReset)
 			{
-				wall.OnHit += OnWallHitHandler;
+				foreach (var wall in Walls)
+				{
+					wall.OnHit += OnWallHitHandler;
+				}
 			}
 
 			isInitialized = true;
@@ -63,14 +69,15 @@ namespace PM.PingPong.Gameplay
 		{
 			if (!isInitialized)
 				return;
-			
+
 			MoveRocket(RocketTop);
 			MoveRocket(RocketBottom);
 		}
 
 		private void OnWallHitHandler()
 		{
-			ResetBall();
+			if (ResetCoroutine == null)
+				StartCoroutine(ResetField());
 		}
 
 		private void OnDestroy()
@@ -86,13 +93,15 @@ namespace PM.PingPong.Gameplay
 
 		private void OnTopGoalHandler()
 		{
-			ResetBall();
+			if (ResetCoroutine == null)
+				StartCoroutine(ResetField());
 			ChangeScore(1);
 		}
 
 		private void OnBottomGoalHandler()
 		{
-			ResetBall();
+			if (ResetCoroutine == null)
+				StartCoroutine(ResetField());
 			ChangeScore(-1);
 		}
 
@@ -108,10 +117,30 @@ namespace PM.PingPong.Gameplay
 			}
 		}
 
-		private void ResetBall()
+		private IEnumerator ResetField()
 		{
 			Ball.position = Vector3.zero;
-			Ball.velocity = (Random.value > 0.5f ? Vector3.back : Vector3.forward) * 15f;
+			Ball.velocity = Vector3.zero;
+
+			var rocketBottomTransform = RocketBottom.transform;
+			var position = rocketBottomTransform.position;
+			position = new Vector3(0, position.y, position.z);
+			rocketBottomTransform.position = position;
+			RocketBottom.Rigidbody.velocity = Vector3.zero;
+
+			var rocketTopTransform = RocketTop.transform;
+			position = rocketTopTransform.position;
+			position = new Vector3(0, position.y, position.z);
+			rocketTopTransform.position = position;
+			RocketTop.Rigidbody.velocity = Vector3.zero;
+			
+			yield return new WaitForSeconds(0.2f);
+			// showing what side it's gonna move
+			Ball.velocity = (Random.value > 0.5f ? Vector3.back : Vector3.forward);
+			
+			yield return new WaitForSeconds(0.5f);
+			Ball.velocity = Mathf.Clamp(Ball.velocity.z, -1, 1) * 15f * Vector3.forward;
+			ResetCoroutine = null;
 		}
 
 		private void MoveRocket(Rocket rocket)
@@ -128,7 +157,7 @@ namespace PM.PingPong.Gameplay
 			{
 				targetRigidBody.velocity += value * Time.deltaTime * 50f * Vector3.right;
 			}
-			
+
 			currentVelocity = targetRigidBody.velocity;
 
 			if (currentVelocity.magnitude > 15f)
