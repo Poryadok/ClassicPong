@@ -70,6 +70,7 @@ namespace PM.PingPong.Gameplay
 			var activeSkin = gameplayConfigHolder.Skins.Find(x => x.Id == activeSkinId);
 			var skin = Instantiate(activeSkin.Prefab, Ball.transform);
 			skin.GetComponent<MeshRenderer>().material.color = activeSkin.Color;
+			Ball.GetComponent<Ball>().Init();
 		}
 	}
 }

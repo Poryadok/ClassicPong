@@ -6,10 +6,21 @@ namespace PM.PingPong.Gameplay
 	public class Ball : MonoBehaviour
 	{
 		private Rigidbody myRigidbody;
+		private Material material;
+		private float spawnTime;
+		
+		private static readonly int HitPosition = Shader.PropertyToID("_HitPosition");
+		private static readonly int HitTime = Shader.PropertyToID("_HitTime");
 
 		private void Awake()
 		{
+			spawnTime = Time.time;
+		}
+
+		public void Init()
+		{
 			myRigidbody = GetComponent<Rigidbody>();
+			material = GetComponentInChildren<MeshRenderer>().material;
 		}
 
 		private void ResetSpeed(float rocketVelocity)
@@ -27,6 +38,9 @@ namespace PM.PingPong.Gameplay
 
 		private void FixedUpdate()
 		{
+			if (myRigidbody == null)
+			    return;
+			
 			if (myRigidbody.velocity != Vector3.zero && Math.Abs(myRigidbody.velocity.magnitude - 15f) > 0.1f)
 			{
 				myRigidbody.velocity =
@@ -43,6 +57,12 @@ namespace PM.PingPong.Gameplay
 			if (other.gameObject.CompareTag("Player"))
 			{
 				ResetSpeed(other.gameObject.GetComponent<Rigidbody>().velocity.x);
+			}
+
+			if (!other.gameObject.CompareTag("Untagged"))
+			{
+				material.SetVector(HitPosition, other.contacts[0].point - transform.position);
+				material.SetFloat(HitTime, Time.time - spawnTime);
 			}
 		}
 	}
