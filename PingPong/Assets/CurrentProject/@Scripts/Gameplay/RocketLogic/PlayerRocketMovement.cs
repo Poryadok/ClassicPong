@@ -3,7 +3,7 @@ using Zenject;
 
 namespace PM.PingPong.Gameplay
 {
-	public class PlayerRocketLogic : AbRocketLogic
+	public class PlayerRocketMovement : AbRocketMovement
 	{
 		private InputFacade input;
 

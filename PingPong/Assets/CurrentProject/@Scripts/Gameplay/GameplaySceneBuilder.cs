@@ -11,18 +11,18 @@ namespace PM.PingPong.Gameplay
 {
 	public class GameplaySceneBuilder : MonoBehaviour, IInitializable
 	{
+		[Inject(Id = "top")]
 		public Rocket RocketTop;
+		[Inject(Id = "bottom")]
 		public Rocket RocketBottom;
-		public Goal GoalTop;
-		public Goal GoalBottom;
-		public Rigidbody Ball;
-		public Wall[] Walls;
+		[Inject]
+		public Ball Ball;
 
 		private GeneralConfigHolder generalConfigHolder;
 		private GameplayConfigHolder gameplayConfigHolder;
 		private WindowManagerUT windowManager;
 		private GameplayStateController gameplayStateController;
-		private AbRocketLogic.LogicFactory logicFactory;
+		private AbRocketMovement.MovementFactory movementFactory;
 		private Merchandiser merchandiser;
 		
 		[Inject]
@@ -30,14 +30,14 @@ namespace PM.PingPong.Gameplay
 			GeneralConfigHolder generalConfigHolder, 
 			WindowManagerUT windowManagerUt, 
 			GameplayStateController gameplayStateController, 
-			AbRocketLogic.LogicFactory logicFactory,
+			AbRocketMovement.MovementFactory movementFactory,
 			Merchandiser merchandiser)
 		{
 			this.gameplayConfigHolder = gameplayConfigHolder;
 			this.gameplayStateController = gameplayStateController;
 			this.generalConfigHolder = generalConfigHolder;
 			windowManager = windowManagerUt;
-			this.logicFactory = logicFactory;
+			this.movementFactory = movementFactory;
 			this.merchandiser = merchandiser;
 		}
 
@@ -52,25 +52,17 @@ namespace PM.PingPong.Gameplay
 		private void SetupObjects()
 		{
 			Ball.transform.position = Vector3.zero;
-			RocketBottom.Logic = logicFactory.Create(true);
-			RocketTop.Logic = logicFactory.Create(
+			RocketBottom.movement = movementFactory.Create(true);
+			RocketTop.movement = movementFactory.Create(
 				!generalConfigHolder.GameModeSettings.Find(x =>
 						x.GameMode == generalConfigHolder.GameSettings.GameMode)
 					.IsBotPlaying);
 			
-			if (!generalConfigHolder.GameSettings.AreWallsReset)
-			{
-				foreach (var wall in Walls)
-				{
-					wall.GetComponent<Collider>().isTrigger = false;
-				}
-			}
-
 			var activeSkinId = merchandiser.GetActiveSkin();
 			var activeSkin = gameplayConfigHolder.Skins.Find(x => x.Id == activeSkinId);
 			var skin = Instantiate(activeSkin.Prefab, Ball.transform);
 			skin.GetComponent<MeshRenderer>().material.color = activeSkin.Color;
-			Ball.GetComponent<Ball>().Init();
+			Ball.Init();
 		}
 	}
 }

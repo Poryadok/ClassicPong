@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a467ab9d0305049a9892ba0ecab395, type: 3}
   m_Name: Balance
   m_EditorClassIdentifier: 
-  BallSpeed: 0
+  BallSpeed: 15
+  RocketSpeed: 10
+  RocketAcceleration: 50
+  RocketStopMultiplier: 0.93
+  BallSpeedMultiplier: 2
+  BallSpeedMaxOffset: 0.1
+  HorizontalMovementDotProduct: 0.1
+  AntiHorizontalZFix: 0.5

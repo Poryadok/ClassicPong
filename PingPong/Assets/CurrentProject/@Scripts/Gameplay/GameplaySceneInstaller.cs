@@ -16,16 +16,80 @@ namespace PM.PingPong.Gameplay
 		public GameplaySceneBuilder GameplaySceneBuilder;
 		public GameplayLoopController GameplayLoopController;
 		public GameplayStateController GameplayStateController;
+		public BallMovementController BallMovementController;
+		public RocketMovementController RocketMovementController;
 
 		public WindowManagerUT WindowManager;
 
+		public Rocket RocketTop;
+		public Rocket RocketBottom;
+		public Goal GoalTop;
+		public Goal GoalBottom;
+		public Ball Ball;
+		public Wall[] Walls;
+		
 		public override void InstallBindings()
 		{
+			InstallFieldObjects();
+			InstallControllers();
+			InstallHolders();
+			
 			Container.Bind<WindowManagerUT>()
 				.FromInstance(WindowManager)
 				.AsSingle()
 				.NonLazy();
 
+			Container.BindInterfacesAndSelfTo<GameplaySceneBuilder>()
+				.FromInstance(GameplaySceneBuilder)
+				.AsSingle()
+				.NonLazy();
+
+			Container.Bind<InputFacade>()
+				.FromInstance(InputFacade)
+				.AsSingle()
+				.NonLazy();
+
+			Container.BindFactory<bool, AbRocketMovement, AbRocketMovement.MovementFactory>()
+				.FromFactory<AbRocketMovement.RocketMovementFactory>();
+			
+			Container.Bind<Merchandiser>()
+				.AsSingle();
+			
+			Container.Bind<RewardCollector>()
+				.AsSingle()
+				.NonLazy();
+		}
+		
+		private void InstallFieldObjects()
+		{
+			Container.Bind<Rocket>()
+				.WithId("top")
+				.FromInstance(RocketTop)
+				.NonLazy();
+			Container.Bind<Rocket>()
+				.WithId("bottom")
+				.FromInstance(RocketBottom)
+				.NonLazy();
+			Container.Bind<Goal>()
+				.WithId("top")
+				.FromInstance(GoalTop)
+				.NonLazy();
+			Container.Bind<Goal>()
+				.WithId("bottom")
+				.FromInstance(GoalBottom)
+				.NonLazy();
+			Container.Bind<Wall[]>()
+				.FromInstance(Walls)
+				.AsSingle()
+				.NonLazy();
+			Container.Bind<Ball>()
+				.FromInstance(Ball)
+				.AsSingle()
+				.NonLazy();
+		}
+
+		private void InstallHolders()
+		{
 			Container.Bind<GameplayConfigHolder>()
 				.FromInstance(GameplayConfigHolder)
 				.AsSingle()
@@ -46,11 +110,10 @@ namespace PM.PingPong.Gameplay
 				.AsSingle()
 				.NonLazy();
 
-			Container.BindInterfacesAndSelfTo<GameplaySceneBuilder>()
-				.FromInstance(GameplaySceneBuilder)
-				.AsSingle()
-				.NonLazy();
+		}
 
+		private void InstallControllers()
+		{
 			Container.Bind<GameplayLoopController>()
 				.FromInstance(GameplayLoopController)
 				.AsSingle()
@@ -61,8 +124,13 @@ namespace PM.PingPong.Gameplay
 				.AsSingle()
 				.NonLazy();
 
-			Container.Bind<InputFacade>()
-				.FromInstance(InputFacade)
+			Container.Bind<BallMovementController>()
+				.FromInstance(BallMovementController)
+				.AsSingle()
+				.NonLazy();
+
+			Container.Bind<RocketMovementController>()
+				.FromInstance(RocketMovementController)
 				.AsSingle()
 				.NonLazy();
 
@@ -70,15 +138,6 @@ namespace PM.PingPong.Gameplay
 				.AsSingle()
 				.NonLazy();
 
-			Container.BindFactory<bool, AbRocketLogic, AbRocketLogic.LogicFactory>()
-				.FromFactory<AbRocketLogic.RocketLogicFactory>();
-			
-			Container.Bind<Merchandiser>()
-				.AsSingle();
-			
-			Container.Bind<RewardCollector>()
-				.AsSingle()
-				.NonLazy();
 		}
 	}
 }

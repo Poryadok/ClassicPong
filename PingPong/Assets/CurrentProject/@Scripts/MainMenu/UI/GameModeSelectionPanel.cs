@@ -7,31 +7,22 @@ namespace PM.PingPong.MainMenu
 {
 	public class GameModeSelectionPanel : AbPanel
 	{
-		private readonly BoolProperty areWallsReset = new();
-
 		private GameModeSelector gameModeSelector;
-		private GeneralConfigHolder generalConfigHolder;
 
 		[Inject]
-		public void Construct(GameModeSelector gameModeSelector, GeneralConfigHolder generalConfigHolder)
+		public void Construct(GameModeSelector gameModeSelector)
 		{
 			this.gameModeSelector = gameModeSelector;
-			this.generalConfigHolder = generalConfigHolder;
-		}
-
-		private void Start()
-		{
-			areWallsReset.value = generalConfigHolder.GameSettings.AreWallsReset;
 		}
 
 		public void PlaySolo()
 		{
-			gameModeSelector.PlaySolo(areWallsReset.value);
+			gameModeSelector.PlaySolo();
 		}
 
 		public void PlayWithBot()
 		{
-			gameModeSelector.PlayWithBot(areWallsReset.value);
+			gameModeSelector.PlayWithBot();
 		}
 
 		public void Back()

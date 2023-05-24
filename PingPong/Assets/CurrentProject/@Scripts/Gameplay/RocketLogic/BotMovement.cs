@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PM.PingPong.Gameplay
 {
-	public class BotLogic : AbRocketLogic
+	public class BotMovement : AbRocketMovement
 	{
 		public override float GetMovement(Rigidbody rocket, Rigidbody ball)
 		{

@@ -29,7 +29,7 @@ namespace PM.PingPong.Gameplay
 		private void Start()
 		{
 			isVictory.value = gameplayLoopController.Score.x > gameplayLoopController.Score.y;
-			currentScore.value = bestScoreController.GetCurrentScore();
+			currentScore.value = (float)Math.Round(bestScoreController.GetCurrentScore(), 2);
 			bestScore.value = (float)Math.Round(PlayerPrefs.GetFloat(BestScoreController.BEST_SCORE_KEY), 2);
 		}
 

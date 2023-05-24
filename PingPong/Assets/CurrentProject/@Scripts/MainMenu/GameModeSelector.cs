@@ -18,17 +18,15 @@ namespace PM.PingPong.MainMenu
 			this.windowManager = windowManager;
 		}
 
-		public void PlaySolo(bool areWallsReset)
+		public void PlaySolo()
 		{
 			generalConfigHolder.GameSettings.GameMode = GameMode.Solo;
-			generalConfigHolder.GameSettings.AreWallsReset = areWallsReset;
 			LoadGameplayScene();
 		}
 
-		public void PlayWithBot(bool areWallsReset)
+		public void PlayWithBot()
 		{
 			generalConfigHolder.GameSettings.GameMode = GameMode.Bot;
-			generalConfigHolder.GameSettings.AreWallsReset = areWallsReset;
 			LoadGameplayScene();
 		}
 

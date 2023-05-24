@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PM.PingPong.Gameplay
 {
 	[RequireComponent(typeof(Rigidbody))]
 	public class Rocket : MonoBehaviour
 	{
-		public AbRocketLogic Logic;
+		public AbRocketMovement movement;
 		public Rigidbody Rigidbody;
 		private Material material;
 		private float spawnTime;
